@@ -1,0 +1,279 @@
+################################################################################
+# MIT License
+#
+# Copyright (c) 2025 University of Amsterdam
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to conditions.
+#
+# Author: Deep Learning Course (UvA) | Fall 2025
+# Date Created: 2025-10-28
+################################################################################
+"""
+This module implements training and evaluation of a multi-layer perceptron in NumPy.
+You should fill in code into indicated sections.
+"""
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import argparse
+import numpy as np
+import os
+from tqdm.auto import tqdm
+from copy import deepcopy
+from mlp_numpy import MLP
+from modules import CrossEntropyModule
+import cifar10_utils
+
+import torch
+
+# can i add this import 
+from modules import LinearModule
+import matplotlib.pyplot as plt
+
+
+def accuracy(predictions, targets):
+    """
+    Computes the prediction accuracy, i.e. the average of correct predictions
+    of the network.
+
+    Args:
+      predictions: 2D float array of size [batch_size, n_classes], predictions of the model (logits)
+      labels: 1D int array of size [batch_size]. Ground truth labels for
+              each sample in the batch
+    Returns:
+      accuracy: scalar float, the accuracy of predictions between 0 and 1,
+                i.e. the average correct predictions over the whole batch
+
+    TODO:
+    Implement accuracy computation.
+    """
+
+    #######################
+    # PUT YOUR CODE HERE  #
+    #######################
+    pred_classes = np.argmax(predictions, axis=1)
+    correct_preds = np.sum(pred_classes == targets)
+    accuracy = correct_preds / targets.shape[0]
+    #######################
+    # END OF YOUR CODE    #
+    #######################
+
+    return accuracy
+
+
+def evaluate_model(model, data_loader):
+    """
+    Performs the evaluation of the MLP model on a given dataset.
+
+    Args:
+      model: An instance of 'MLP', the model to evaluate.
+      data_loader: The data loader of the dataset to evaluate.
+    Returns:
+      avg_accuracy: scalar float, the average accuracy of the model on the dataset.
+
+    TODO:
+    Implement evaluation of the MLP model on a given dataset.
+
+    Hint: make sure to return the average accuracy of the whole dataset, 
+          independent of batch sizes (not all batches might be the same size).
+    """
+
+    #######################
+    # PUT YOUR CODE HERE  #
+    #######################
+    batch_accuracy = 0.0
+    batch_accuracy = 0.0
+    losses = []
+    loss = CrossEntropyModule()
+    for data, target in data_loader:
+      data = data.reshape(data.shape[0], -1)
+      y_pred = model.forward(data)
+      batch_accuracy += accuracy(y_pred, target)
+      losses.append(loss.forward(y_pred, target))
+    avg_accuracy = batch_accuracy / len(data_loader)
+    avg_loss = sum(losses) / len(losses)
+
+    #######################
+    # END OF YOUR CODE    #
+    #######################
+
+    return avg_accuracy, avg_loss
+
+
+def train(hidden_dims, lr, batch_size, epochs, seed, data_dir):
+    """
+    Performs a full training cycle of MLP model.
+
+    Args:
+      hidden_dims: A list of ints, specificying the hidden dimensionalities to use in the MLP.
+      lr: Learning rate of the SGD to apply.
+      batch_size: Minibatch size for the data loaders.
+      epochs: Number of training epochs to perform.
+      seed: Seed to use for reproducible results.
+      data_dir: Directory where to store/find the CIFAR10 dataset.
+    Returns:
+      model: An instance of 'MLP', the trained model that performed best on the validation set.
+      val_accuracies: A list of scalar floats, containing the accuracies of the model on the
+                      validation set per epoch (element 0 - performance after epoch 1)
+      test_accuracy: scalar float, average accuracy on the test dataset of the model that 
+                     performed best on the validation. Between 0.0 and 1.0
+      logging_dict: An arbitrary object containing logging information. This is for you to 
+                    decide what to put in here.
+
+    TODO:
+    - Implement the training of the MLP model. 
+    - Evaluate your model on the whole validation set each epoch.
+    - After finishing training, evaluate your model that performed best on the validation set, 
+      on the whole test dataset.
+    - Integrate _all_ input arguments of this function in your training. You are allowed to add
+      additional input argument if you assign it a default value that represents the plain training
+      (e.g. '..., new_param=False')
+
+    Hint: you can save your best model by deepcopy-ing it.
+    """
+
+    # Set the random seeds for reproducibility
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+
+    ## Loading the dataset
+    cifar10 = cifar10_utils.get_cifar10(data_dir)
+    cifar10_loader = cifar10_utils.get_dataloader(cifar10, batch_size=batch_size,
+                                                  return_numpy=True)
+
+    #######################
+    # PUT YOUR CODE HERE  #
+    #######################
+
+    # TODO: Initialize model and loss module
+    cifar10_input_dim = 3 * 32 * 32
+    n_classes = 10
+    model = MLP(cifar10_input_dim, hidden_dims, n_classes)
+    loss_module = CrossEntropyModule()
+
+    # TODO: Training loop including validation
+    val_accuracies = []
+    train_losses = []
+    train_accuracies = []
+    val_losses = []
+    best_model = None
+    best_val =-1
+
+    for epoch in tqdm(range(epochs), desc="Training Epochs"):
+      for data, target in cifar10_loader["train"]:
+          
+        # Forward Pass
+        data = data.reshape(data.shape[0], -1)  # Flatten the input
+        y_pred = model.forward(data)
+        loss = loss_module.forward(y_pred, target)
+        
+
+        # Backward Pass
+        dout = loss_module.backward(y_pred, target)
+        model.backward(dout)
+
+        # Update Weights
+        for module in model.modules:
+          if isinstance(module, LinearModule):
+              module.params['weight'] -= lr * module.grads['weight']
+              module.params['bias'] -= lr * module.grads['bias']
+
+      # Validation after each epoch
+      
+      val_acc, val_loss = evaluate_model(model, cifar10_loader["validation"])
+      val_accuracies.append(val_acc)
+      val_losses.append(val_loss)
+      train_acc, train_loss = evaluate_model(model, cifar10_loader["train"])
+      train_accuracies.append(train_acc)
+      train_losses.append(train_loss)
+      print(f"Epoch {epoch+1}, Validation Accuracy: {val_acc*100:.2f}%, Validation Loss: {val_loss:.4f}")
+
+      if val_acc > best_val:
+        best_val = val_acc
+        best_model = deepcopy(model)
+        best_model_epoch = epoch
+    
+    # TODO: Test best model
+    model = best_model
+    test_accuracy, _ = evaluate_model(model, cifar10_loader["test"])
+    print(f"Test Accuracy of the best model: {test_accuracy*100:.2f}%")
+
+    # TODO: Add any information you might want to save for plotting
+    logging_dict = {
+        "train_loss": train_losses,
+        "val_accuracies": val_accuracies,
+        "test_accuracy": test_accuracy,
+        "val_losses": val_losses,
+        "train_accuracies": train_accuracies,
+        "best_model_epoch": best_model_epoch
+    }
+    #######################
+    # END OF YOUR CODE    #
+    #######################
+
+    return model, val_accuracies, test_accuracy, logging_dict
+        
+def plot_results(logging_dict, saving_path="figures/mlp_training_results.png", batch_norm=False):
+      fig = plt.figure(figsize=(12,5))
+      # Plot training loss
+      train_loss = logging_dict["train_loss"]
+      plt.subplot(1, 2, 1)
+      plt.plot(train_loss, label="Train Loss")
+      plt.plot(logging_dict["val_losses"], label="Validation Loss")
+      plt.xlabel("Iterations")
+      plt.ylabel("Loss")
+      plt.title("Training Loss")
+      plt.legend()
+
+      # Plot validation accuracy
+      plt.subplot(1, 2, 2)
+      val_accuracies = logging_dict["val_accuracies"]
+      plt.plot(val_accuracies, label="Validation Accuracy")
+      plt.plot(logging_dict["train_accuracies"], label="Training Accuracy")
+      plt.axvline(x=logging_dict["best_model_epoch"], color='r', linestyle='--', label='Best Model Epoch')
+      plt.axhline(y=logging_dict["test_accuracy"], color='black', linestyle='--', label='Test Accuracy = ' + str(round(logging_dict["test_accuracy"].item()*100,2)) + '%')
+    
+      plt.xlabel("Epochs")
+      plt.ylabel("Accuracy")
+      plt.title("Validation Accuracy")
+      plt.legend()
+      plt.savefig(saving_path + str("batch_norm" if batch_norm else "no_batch_norm") + ".png")
+      plt.show()
+
+
+if __name__ == '__main__':
+    # Command line arguments
+    parser = argparse.ArgumentParser()
+    
+    # Model hyperparameters
+    parser.add_argument('--hidden_dims', default=[128], type=int, nargs='+',
+                        help='Hidden dimensionalities to use inside the network. To specify multiple, use " " to separate them. Example: "256 128"')
+    
+    # Optimizer hyperparameters
+    parser.add_argument('--lr', default=0.1, type=float,
+                        help='Learning rate to use')
+    parser.add_argument('--batch_size', default=128, type=int,
+                        help='Minibatch size')
+
+    # Other hyperparameters
+    parser.add_argument('--epochs', default=10, type=int,
+                        help='Max number of epochs')
+    parser.add_argument('--seed', default=42, type=int,
+                        help='Seed to use for reproducing results')
+    parser.add_argument('--data_dir', default='data/', type=str,
+                        help='Data directory where to store/find the CIFAR10 dataset.')
+
+    args = parser.parse_args()
+    kwargs = vars(args)
+
+    model, val_accuracies, test_accuracy, logging_dict =train(**kwargs)
+    # Feel free to add any additional functions, such as plotting of the loss curve here
+    print("Training complete.")
+    plot_results(logging_dict)
+    
