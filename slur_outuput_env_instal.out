@@ -1,0 +1,3405 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+accepted Terms of Service for https://repo.anaconda.com/pkgs/main
+accepted Terms of Service for https://repo.anaconda.com/pkgs/r
+2 channel Terms of Service accepted
+Channels:
+ - pytorch
+ - nvidia
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+Solving environment: - \ done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.5.1
+    latest version: 25.9.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+Downloading and Extracting Packages: ...working...
+pytorch-2.5.0        | 1.55 GB   |            |   0% 
+
+libcublas-11.11.3.6  | 364.0 MB  |            |   0% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  |            |   0% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  |            |   0% [A[A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  |            |   0% [A[A[A[A
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  |            |   0% [A[A[A[A[A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libcurand-10.4.0.35  | 41.5 MB   |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+python-3.12.7        | 30.1 MB   |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+cuda-cupti-11.8.87   | 25.3 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+cuda-nvrtc-11.8.89   | 19.1 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+icu-75.1             | 11.6 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.4.2         | 10.1 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.0   | 8.5 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+numpy-2.3.4          | 8.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.0     | 6.3 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.1. | 4.5 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   |            |   0% 
+
+libcublas-11.11.3.6  | 364.0 MB  |            |   0% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  |            |   1% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | 1          |   2% [A[A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  |            |   0% [A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | 1          |   1% 
+
+libcublas-11.11.3.6  | 364.0 MB  | 2          |   3% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | 6          |   6% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | 7          |   8% [A[A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | 8          |   8% [A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | 1          |   2% 
+
+libcublas-11.11.3.6  | 364.0 MB  | 5          |   6% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | #1         |  12% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | #3         |  14% [A[A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | #5         |  16% [A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | 9          |   9% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | #7         |  17% [A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ##2        |  22% [A[A[A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ##1        |  21% [A[A[A
+pytorch-2.5.0        | 1.55 GB   | 2          |   3% 
+
+libcublas-11.11.3.6  | 364.0 MB  | #3         |  13% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | ##3        |  23% [A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ###        |  30% [A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | 3          |   3% 
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ##7        |  27% [A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | #7         |  17% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | ###1       |  31% [A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ###8       |  39% [A[A[A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ###2       |  32% [A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ##1        |  22% [A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ####7      |  48% [A[A[A[A
+
+
+torchtriton-3.1.0    | 233.6 MB  | ###7       |  38% [A[A
+pytorch-2.5.0        | 1.55 GB   | 4          |   4% 
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ###8       |  39% [A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ##5        |  26% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | ####3      |  43% [A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | #####5     |  56% [A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | 4          |   5% 
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ####5      |  45% [A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ##9        |  29% [A
+pytorch-2.5.0        | 1.55 GB   | 5          |   6% 
+
+
+torchtriton-3.1.0    | 233.6 MB  | ####9      |  49% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | #####3     |  53% [A[A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ######3    |  63% [A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ###3       |  33% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | #####5     |  55% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | #####9     |  59% [A[A[A
+pytorch-2.5.0        | 1.55 GB   | 6          |   6% 
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | #######    |  70% [A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ###7       |  38% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | ######3    |  64% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ######5    |  66% [A[A[A
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | #######8   |  78% [A[A[A[A
+
+
+torchtriton-3.1.0    | 233.6 MB  | #######    |  70% [A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ####1      |  42% [A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | #######4   |  74% [A[A[A
+pytorch-2.5.0        | 1.55 GB   | 6          |   7% 
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ########6  |  87% [A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ####5      |  45% [A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ########3  |  84% [A[A[A
+pytorch-2.5.0        | 1.55 GB   | 7          |   8% 
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | #########5 |  95% [A[A[A[A
+
+
+torchtriton-3.1.0    | 233.6 MB  | #######6   |  77% [A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | #########2 |  93% [A[A[A
+pytorch-2.5.0        | 1.55 GB   | 8          |   8% 
+
+
+torchtriton-3.1.0    | 233.6 MB  | ########2  |  83% [A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ####8      |  49% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | #########  |  90% [A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | #####1     |  52% [A
+pytorch-2.5.0        | 1.55 GB   | 8          |   9% 
+
+libcublas-11.11.3.6  | 364.0 MB  | #####7     |  57% [A
+
+
+torchtriton-3.1.0    | 233.6 MB  | #########6 |  96% [A[A
+pytorch-2.5.0        | 1.55 GB   | 9          |  10% 
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ########## | 100% [A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #          |  11% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  |            |   0% [A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ######     |  61% [A
+pytorch-2.5.0        | 1.55 GB   | #1         |  12% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | 8          |   9% [A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ######4    |  64% [A
+pytorch-2.5.0        | 1.55 GB   | #2         |  13% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | #7         |  18% [A[A[A[A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ########## | 100% [A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ######7    |  68% [A
+pytorch-2.5.0        | 1.55 GB   | #3         |  14% 
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ##7        |  28% [A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | #######1   |  72% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | #          |  10% [A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #4         |  15% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ###5       |  36% [A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | #######5   |  75% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | ##1        |  22% [A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #5         |  15% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ####3      |  44% [A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | #######8   |  79% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | ###1       |  32% [A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #6         |  16% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | #####4     |  55% [A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ########2  |  82% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | ####1      |  42% [A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #7         |  17% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ######3    |  64% [A[A[A[A[A
+
+
+torchtriton-3.1.0    | 233.6 MB  | ########## | 100% [A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ########5  |  86% [A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | #####1     |  51% [A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #8         |  18% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | #######2   |  72% [A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | #          |  10% [A[A[A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ########8  |  89% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | #####9     |  60% [A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #9         |  19% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ########   |  81% [A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | ##         |  20% [A[A[A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | #########1 |  92% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | ######7    |  68% [A[A[A[A[A[A
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ########8  |  88% [A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | ###1       |  31% [A[A[A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | #########4 |  95% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | #######6   |  77% [A[A[A[A[A[A
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | #########7 |  97% [A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | ####4      |  44% [A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | #9         |  20% 
+
+libcublas-11.11.3.6  | 364.0 MB  | #########7 |  97% [A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | ########5  |  85% [A[A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | #####5     |  56% [A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ##         |  21% 
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | #########4 |  95% [A[A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | ######9    |  70% [A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ##1        |  21% 
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | ########7  |  87% [A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ##2        |  22% 
+pytorch-2.5.0        | 1.55 GB   | ##3        |  24% 
+pytorch-2.5.0        | 1.55 GB   | ##5        |  25% 
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ########## | 100% [A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ##6        |  26% 
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libcurand-10.4.0.35  | 41.5 MB   |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+cuda-cupti-11.8.87   | 25.3 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+python-3.12.7        | 30.1 MB   |            |   0% [A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ##7        |  27% 
+
+
+
+
+
+
+
+
+libcurand-10.4.0.35  | 41.5 MB   | ###7       |  37% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+cuda-cupti-11.8.87   | 25.3 MB   | ###7       |  37% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+python-3.12.7        | 30.1 MB   | ####1      |  42% [A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ##8        |  29% 
+
+
+
+
+
+
+
+
+libcurand-10.4.0.35  | 41.5 MB   | ######4    |  64% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+cuda-cupti-11.8.87   | 25.3 MB   | ########6  |  87% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+python-3.12.7        | 30.1 MB   | ########1  |  81% [A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ##9        |  30% 
+
+
+
+
+
+
+
+
+
+
+cuda-cupti-11.8.87   | 25.3 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+python-3.12.7        | 30.1 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+cuda-nvrtc-11.8.89   | 19.1 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ###        |  31% 
+
+
+
+
+
+
+
+
+
+
+
+
+icu-75.1             | 11.6 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libcurand-10.4.0.35  | 41.5 MB   | ########8  |  88% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+cuda-nvrtc-11.8.89   | 19.1 MB   | #######2   |  72% [A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ###1       |  32% 
+
+
+
+
+
+
+
+
+
+
+
+
+icu-75.1             | 11.6 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+icu-75.1             | 11.6 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+cuda-nvrtc-11.8.89   | 19.1 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libcurand-10.4.0.35  | 41.5 MB   | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.4.2         | 10.1 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.0   | 8.5 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ###2       |  33% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+numpy-2.3.4          | 8.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.0   | 8.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.4.2         | 10.1 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.4.2         | 10.1 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+numpy-2.3.4          | 8.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ###4       |  34% 
+
+libcublas-11.11.3.6  | 364.0 MB  | ########## | 100% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.0     | 6.3 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.1. | 4.5 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.0     | 6.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.1. | 4.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ###5       |  35% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    | #######7   |  77% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.0        | 1.55 GB   | ###6       |  36% 
+pytorch-2.5.0        | 1.55 GB   | ###6       |  37% 
+pytorch-2.5.0        | 1.55 GB   | ###7       |  38% 
+pytorch-2.5.0        | 1.55 GB   | ###9       |  39% 
+pytorch-2.5.0        | 1.55 GB   | ####       |  40% 
+pytorch-2.5.0        | 1.55 GB   | ####1      |  41% 
+pytorch-2.5.0        | 1.55 GB   | ####2      |  43% 
+pytorch-2.5.0        | 1.55 GB   | ####4      |  44% 
+pytorch-2.5.0        | 1.55 GB   | ####5      |  45% 
+pytorch-2.5.0        | 1.55 GB   | ####6      |  46% 
+pytorch-2.5.0        | 1.55 GB   | ####7      |  47% 
+pytorch-2.5.0        | 1.55 GB   | ####8      |  48% 
+pytorch-2.5.0        | 1.55 GB   | ####9      |  49% 
+pytorch-2.5.0        | 1.55 GB   | #####      |  50% 
+pytorch-2.5.0        | 1.55 GB   | #####1     |  51% 
+pytorch-2.5.0        | 1.55 GB   | #####2     |  52% 
+pytorch-2.5.0        | 1.55 GB   | #####3     |  53% 
+pytorch-2.5.0        | 1.55 GB   | #####4     |  54% 
+pytorch-2.5.0        | 1.55 GB   | #####5     |  55% 
+pytorch-2.5.0        | 1.55 GB   | #####6     |  57% 
+pytorch-2.5.0        | 1.55 GB   | #####7     |  58% 
+pytorch-2.5.0        | 1.55 GB   | #####8     |  59% 
+pytorch-2.5.0        | 1.55 GB   | #####9     |  60% 
+pytorch-2.5.0        | 1.55 GB   | ######     |  61% 
+pytorch-2.5.0        | 1.55 GB   | ######1    |  62% 
+pytorch-2.5.0        | 1.55 GB   | ######2    |  63% 
+pytorch-2.5.0        | 1.55 GB   | ######3    |  64% 
+pytorch-2.5.0        | 1.55 GB   | ######4    |  65% 
+pytorch-2.5.0        | 1.55 GB   | ######5    |  66% 
+pytorch-2.5.0        | 1.55 GB   | ######6    |  67% 
+pytorch-2.5.0        | 1.55 GB   | ######7    |  68% 
+pytorch-2.5.0        | 1.55 GB   | ######8    |  69% 
+pytorch-2.5.0        | 1.55 GB   | ######9    |  70% 
+pytorch-2.5.0        | 1.55 GB   | #######    |  71% 
+pytorch-2.5.0        | 1.55 GB   | #######2   |  72% 
+pytorch-2.5.0        | 1.55 GB   | #######3   |  73% 
+pytorch-2.5.0        | 1.55 GB   | #######4   |  74% 
+pytorch-2.5.0        | 1.55 GB   | #######5   |  75% 
+pytorch-2.5.0        | 1.55 GB   | #######6   |  76% 
+pytorch-2.5.0        | 1.55 GB   | #######7   |  77% 
+pytorch-2.5.0        | 1.55 GB   | #######8   |  79% 
+pytorch-2.5.0        | 1.55 GB   | #######9   |  79% 
+pytorch-2.5.0        | 1.55 GB   | ########   |  80% 
+pytorch-2.5.0        | 1.55 GB   | ########1  |  81% 
+pytorch-2.5.0        | 1.55 GB   | ########1  |  82% 
+pytorch-2.5.0        | 1.55 GB   | ########3  |  83% 
+pytorch-2.5.0        | 1.55 GB   | ########4  |  84% 
+pytorch-2.5.0        | 1.55 GB   | ########4  |  85% 
+pytorch-2.5.0        | 1.55 GB   | ########5  |  86% 
+pytorch-2.5.0        | 1.55 GB   | ########6  |  87% 
+pytorch-2.5.0        | 1.55 GB   | ########7  |  88% 
+pytorch-2.5.0        | 1.55 GB   | ########8  |  89% 
+pytorch-2.5.0        | 1.55 GB   | ########9  |  90% 
+pytorch-2.5.0        | 1.55 GB   | #########  |  91% 
+pytorch-2.5.0        | 1.55 GB   | #########2 |  92% 
+pytorch-2.5.0        | 1.55 GB   | #########2 |  93% 
+pytorch-2.5.0        | 1.55 GB   | #########3 |  94% 
+pytorch-2.5.0        | 1.55 GB   | #########4 |  95% 
+pytorch-2.5.0        | 1.55 GB   | #########5 |  96% 
+pytorch-2.5.0        | 1.55 GB   | #########6 |  96% 
+pytorch-2.5.0        | 1.55 GB   | #########7 |  97% 
+pytorch-2.5.0        | 1.55 GB   | #########8 |  98% 
+pytorch-2.5.0        | 1.55 GB   | #########8 |  99% 
+pytorch-2.5.0        | 1.55 GB   | #########9 | 100% 
+pytorch-2.5.0        | 1.55 GB   | ########## | 100% 
+
+
+
+
+libnpp-11.8.0.86     | 147.8 MB  | ########## | 100% [A[A[A[A
+
+
+
+libcusparse-11.7.5.8 | 176.3 MB  | ########## | 100% [A[A[A
+
+
+
+
+
+
+mkl-2022.1.0         | 129.7 MB  | ########## | 100% [A[A[A[A[A[A
+
+
+torchtriton-3.1.0    | 233.6 MB  | ########## | 100% [A[A
+
+
+
+
+
+
+
+
+
+
+cuda-cupti-11.8.87   | 25.3 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+python-3.12.7        | 30.1 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+icu-75.1             | 11.6 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+libcufft-10.9.0.58   | 142.8 MB  | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+
+
+
+libcurand-10.4.0.35  | 41.5 MB   | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.0   | 8.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.0   | 8.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+cuda-nvrtc-11.8.89   | 19.1 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libcusolver-11.4.1.4 | 96.5 MB   | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.4.2         | 10.1 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+numpy-2.3.4          | 8.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+numpy-2.3.4          | 8.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.1. | 4.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.1. | 4.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.0     | 6.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.0     | 6.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+libcublas-11.11.3.6  | 364.0 MB  | ########## | 100% [A
+pytorch-2.5.0        | 1.55 GB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+                                                     
+
+                                                     [A
+
+
+                                                     [A[A
+
+
+
+                                                     [A[A[A
+
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+[A
+
+
+[A[A
+
+
+
+[A[A[A
+
+
+
+
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+[A
+
+
+[A[A
+
+
+
+[A[A[A
+
+
+
+
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+[A
+
+
+[A[A
+
+
+
+[A[A[A
+
+
+
+
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+[A
+
+
+[A[A
+
+
+
+[A[A[A
+
+
+
+
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+[A
+
+
+[A[A
+
+
+
+[A[A[A
+
+
+
+
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+[A
+
+
+[A[A
+
+
+
+[A[A[A
+
+
+
+
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+[A
+
+
+[A[A
+
+
+
+[A[A[A
+
+
+
+
+[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A done
+Preparing transaction: / - \ | / - \ | / done
+Verifying transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+Executing transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Installing pip dependencies: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ Ran pip subprocess with arguments:
+['/home/scur2454/.conda/envs/dl2025/bin/python', '-m', 'pip', 'install', '-U', '-r', '/gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting pytorch-lightning==2.4.0 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading pytorch_lightning-2.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting tensorboard==2.17.1 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading tensorboard-2.17.1-py3-none-any.whl.metadata (1.6 kB)
+Collecting tabulate>=0.9.0 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 3))
+  Downloading tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+Collecting tqdm>=4.66.5 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 4))
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Requirement already satisfied: pillow>=10.4.0 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 5)) (11.1.0)
+Collecting pillow>=10.4.0 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 5))
+  Downloading pillow-12.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+Collecting notebook>=7.2.2 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading notebook-7.4.7-py3-none-any.whl.metadata (10 kB)
+Collecting jupyterlab>=4.2.5 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading jupyterlab-4.4.10-py3-none-any.whl.metadata (16 kB)
+Collecting matplotlib>=3.9.2 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 8))
+  Downloading matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+Collecting seaborn>=0.13.2 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 9))
+  Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting ipywidgets>=8.1.2 (from -r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading ipywidgets-8.1.8-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: torch>=2.1.0 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1)) (2.5.0)
+Requirement already satisfied: PyYAML>=5.4 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1)) (6.0.3)
+Collecting fsspec>=2022.5.0 (from fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading fsspec-2025.10.0-py3-none-any.whl.metadata (10 kB)
+Collecting torchmetrics>=0.7.0 (from pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading torchmetrics-1.8.2-py3-none-any.whl.metadata (22 kB)
+Collecting packaging>=20.0 (from pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: typing-extensions>=4.4.0 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1)) (4.15.0)
+Collecting lightning-utilities>=0.10.0 (from pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading lightning_utilities-0.15.2-py3-none-any.whl.metadata (5.7 kB)
+Collecting absl-py>=0.4 (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading absl_py-2.3.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting grpcio>=1.48.2 (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading grpcio-1.76.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.7 kB)
+Collecting markdown>=2.6.8 (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading markdown-3.10-py3-none-any.whl.metadata (5.1 kB)
+Requirement already satisfied: numpy>=1.12.0 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2)) (2.3.4)
+Collecting protobuf!=4.24.0,>=3.19.6 (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading protobuf-6.33.0-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+Requirement already satisfied: setuptools>=41.0.0 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2)) (80.9.0)
+Collecting six>1.9 (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+Collecting werkzeug>=1.0.1 (from tensorboard==2.17.1->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 2))
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting jupyter-server<3,>=2.4.0 (from notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jupyter_server-2.17.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting jupyterlab-server<3,>=2.27.1 (from notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jupyterlab_server-2.28.0-py3-none-any.whl.metadata (5.9 kB)
+Collecting notebook-shim<0.3,>=0.2 (from notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading notebook_shim-0.2.4-py3-none-any.whl.metadata (4.0 kB)
+Collecting tornado>=6.2.0 (from notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading tornado-6.5.2-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.8 kB)
+Collecting async-lru>=1.0.0 (from jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading async_lru-2.0.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting httpx<1,>=0.25.0 (from jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting ipykernel!=6.30.0,>=6.5.0 (from jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading ipykernel-7.1.0-py3-none-any.whl.metadata (4.5 kB)
+Requirement already satisfied: jinja2>=3.0.3 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7)) (3.1.6)
+Collecting jupyter-core (from jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading jupyter_core-5.9.1-py3-none-any.whl.metadata (1.5 kB)
+Collecting jupyter-lsp>=2.0.0 (from jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading jupyter_lsp-2.3.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting traitlets (from jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading traitlets-5.14.3-py3-none-any.whl.metadata (10 kB)
+Collecting contourpy>=1.0.1 (from matplotlib>=3.9.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 8))
+  Downloading contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib>=3.9.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 8))
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib>=3.9.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 8))
+  Downloading fonttools-4.60.1-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (112 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib>=3.9.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 8))
+  Downloading kiwisolver-1.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.3 kB)
+Collecting pyparsing>=3 (from matplotlib>=3.9.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 8))
+  Downloading pyparsing-3.2.5-py3-none-any.whl.metadata (5.0 kB)
+Collecting python-dateutil>=2.7 (from matplotlib>=3.9.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 8))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pandas>=1.2 (from seaborn>=0.13.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 9))
+  Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)
+Collecting comm>=0.1.3 (from ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting ipython>=6.1.0 (from ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading ipython-9.7.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting widgetsnbextension~=4.0.14 (from ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading widgetsnbextension-4.0.15-py3-none-any.whl.metadata (1.6 kB)
+Collecting jupyterlab_widgets~=3.0.15 (from ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading jupyterlab_widgets-3.0.16-py3-none-any.whl.metadata (20 kB)
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading aiohttp-3.13.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+Collecting anyio (from httpx<1,>=0.25.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading anyio-4.11.0-py3-none-any.whl.metadata (4.1 kB)
+Requirement already satisfied: certifi in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from httpx<1,>=0.25.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7)) (2025.10.5)
+Collecting httpcore==1.* (from httpx<1,>=0.25.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: idna in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from httpx<1,>=0.25.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7)) (3.11)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.25.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting debugpy>=1.6.5 (from ipykernel!=6.30.0,>=6.5.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading debugpy-1.8.17-cp312-cp312-manylinux_2_34_x86_64.whl.metadata (1.4 kB)
+Collecting jupyter-client>=8.0.0 (from ipykernel!=6.30.0,>=6.5.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading jupyter_client-8.6.3-py3-none-any.whl.metadata (8.3 kB)
+Collecting matplotlib-inline>=0.1 (from ipykernel!=6.30.0,>=6.5.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading matplotlib_inline-0.2.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting nest-asyncio>=1.4 (from ipykernel!=6.30.0,>=6.5.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting psutil>=5.7 (from ipykernel!=6.30.0,>=6.5.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading psutil-7.1.3-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (23 kB)
+Collecting pyzmq>=25 (from ipykernel!=6.30.0,>=6.5.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading pyzmq-27.1.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (6.0 kB)
+Collecting decorator>=4.3.2 (from ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading decorator-5.2.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting ipython-pygments-lexers>=1.0.0 (from ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl.metadata (1.1 kB)
+Collecting jedi>=0.18.1 (from ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pexpect>4.3 (from ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting prompt_toolkit<3.1.0,>=3.0.41 (from ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading prompt_toolkit-3.0.52-py3-none-any.whl.metadata (6.4 kB)
+Collecting pygments>=2.11.0 (from ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting stack_data>=0.6.0 (from ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from jinja2>=3.0.3->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7)) (3.0.3)
+Collecting platformdirs>=2.5 (from jupyter-core->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading platformdirs-4.5.0-py3-none-any.whl.metadata (12 kB)
+Collecting argon2-cffi>=21.1 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading argon2_cffi-25.1.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting jupyter-events>=0.11.0 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jupyter_events-0.12.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting jupyter-server-terminals>=0.4.4 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jupyter_server_terminals-0.5.3-py3-none-any.whl.metadata (5.6 kB)
+Collecting nbconvert>=6.4.4 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading nbconvert-7.16.6-py3-none-any.whl.metadata (8.5 kB)
+Collecting nbformat>=5.3.0 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Collecting prometheus-client>=0.9 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading prometheus_client-0.23.1-py3-none-any.whl.metadata (1.9 kB)
+Collecting send2trash>=1.8.2 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading Send2Trash-1.8.3-py3-none-any.whl.metadata (4.0 kB)
+Collecting terminado>=0.8.3 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading terminado-0.18.1-py3-none-any.whl.metadata (5.8 kB)
+Collecting websocket-client>=1.7 (from jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading websocket_client-1.9.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting babel>=2.10 (from jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading babel-2.17.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting json5>=0.9.0 (from jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading json5-0.12.1-py3-none-any.whl.metadata (36 kB)
+Collecting jsonschema>=4.18.0 (from jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jsonschema-4.25.1-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: requests>=2.31 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6)) (2.32.5)
+Collecting pytz>=2020.1 (from pandas>=1.2->seaborn>=0.13.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 9))
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas>=1.2->seaborn>=0.13.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 9))
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: filelock in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from torch>=2.1.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1)) (3.20.0)
+Collecting sympy==1.13.1 (from torch>=2.1.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: networkx in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from torch>=2.1.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1)) (3.5)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from sympy==1.13.1->torch>=2.1.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1)) (1.3.0)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting attrs>=17.3.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading attrs-25.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading multidict-6.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading propcache-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2022.5.0->pytorch-lightning==2.4.0->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 1))
+  Downloading yarl-1.22.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (75 kB)
+Collecting sniffio>=1.1 (from anyio->httpx<1,>=0.25.0->jupyterlab>=4.2.5->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 7))
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting argon2-cffi-bindings (from argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (7.4 kB)
+Collecting parso<0.9.0,>=0.8.4 (from jedi>=0.18.1->ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading parso-0.8.5-py2.py3-none-any.whl.metadata (8.3 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.7.1 (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading rpds_py-0.28.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting python-json-logger>=2.0.4 (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading python_json_logger-4.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting rfc3339-validator (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting rfc3986-validator>=0.1.1 (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting beautifulsoup4 (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading beautifulsoup4-4.14.2-py3-none-any.whl.metadata (3.8 kB)
+Collecting bleach!=5.0.0 (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading bleach-6.3.0-py3-none-any.whl.metadata (31 kB)
+Collecting defusedxml (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting jupyterlab-pygments (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting mistune<4,>=2.0.3 (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading mistune-3.1.4-py3-none-any.whl.metadata (1.8 kB)
+Collecting nbclient>=0.5.0 (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading nbclient-0.10.2-py3-none-any.whl.metadata (8.3 kB)
+Collecting pandocfilters>=1.4.1 (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading pandocfilters-1.5.1-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting fastjsonschema>=2.15 (from nbformat>=5.3.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading fastjsonschema-2.21.2-py3-none-any.whl.metadata (2.3 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.3->ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting wcwidth (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading wcwidth-0.2.14-py2.py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from requests>=2.31->jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6)) (3.4.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from requests>=2.31->jupyterlab-server<3,>=2.27.1->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6)) (2.5.0)
+Collecting executing>=1.2.0 (from stack_data>=0.6.0->ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading executing-2.2.1-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting asttokens>=2.1.0 (from stack_data>=0.6.0->ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading asttokens-3.0.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting pure-eval (from stack_data>=0.6.0->ipython>=6.1.0->ipywidgets>=8.1.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 10))
+  Downloading pure_eval-0.2.3-py3-none-any.whl.metadata (6.3 kB)
+Collecting webencodings (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+Collecting tinycss2<1.5,>=1.1.0 (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading tinycss2-1.4.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting fqdn (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading fqdn-1.5.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting isoduration (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading isoduration-20.11.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting jsonpointer>1.13 (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting rfc3987-syntax>=1.1.0 (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading rfc3987_syntax-1.1.0-py3-none-any.whl.metadata (7.7 kB)
+Collecting uri-template (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading uri_template-1.3.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting webcolors>=24.6.0 (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading webcolors-25.10.0-py3-none-any.whl.metadata (2.2 kB)
+Requirement already satisfied: cffi>=1.0.1 in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6)) (2.0.0)
+Collecting soupsieve>1.2 (from beautifulsoup4->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading soupsieve-2.8-py3-none-any.whl.metadata (4.6 kB)
+Requirement already satisfied: pycparser in /home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6)) (2.22)
+Collecting lark>=1.2.2 (from rfc3987-syntax>=1.1.0->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading lark-1.3.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting arrow>=0.15.0 (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=7.2.2->-r /gpfs/home6/scur2454/DL-Labs/condaenv.6h4c1pp9.requirements.txt (line 6))
+  Downloading arrow-1.4.0-py3-none-any.whl.metadata (7.7 kB)
+Downloading pytorch_lightning-2.4.0-py3-none-any.whl (815 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 815.2/815.2 kB 70.6 MB/s eta 0:00:00
+Downloading tensorboard-2.17.1-py3-none-any.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 96.1 MB/s eta 0:00:00
+Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading pillow-12.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 149.0 MB/s eta 0:00:00
+Downloading notebook-7.4.7-py3-none-any.whl (14.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.3/14.3 MB 85.9 MB/s eta 0:00:00
+Downloading jupyterlab-4.4.10-py3-none-any.whl (12.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 117.4 MB/s eta 0:00:00
+Downloading matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 121.5 MB/s eta 0:00:00
+Downloading seaborn-0.13.2-py3-none-any.whl (294 kB)
+Downloading ipywidgets-8.1.8-py3-none-any.whl (139 kB)
+Downloading absl_py-2.3.1-py3-none-any.whl (135 kB)
+Downloading async_lru-2.0.5-py3-none-any.whl (6.1 kB)
+Downloading comm-0.2.3-py3-none-any.whl (7.3 kB)
+Downloading contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (362 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.60.1-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 95.6 MB/s eta 0:00:00
+Downloading fsspec-2025.10.0-py3-none-any.whl (200 kB)
+Downloading grpcio-1.76.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 106.4 MB/s eta 0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading ipykernel-7.1.0-py3-none-any.whl (117 kB)
+Downloading ipython-9.7.0-py3-none-any.whl (618 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 618.9/618.9 kB 54.7 MB/s eta 0:00:00
+Downloading jupyter_core-5.9.1-py3-none-any.whl (29 kB)
+Downloading jupyter_lsp-2.3.0-py3-none-any.whl (76 kB)
+Downloading jupyter_server-2.17.0-py3-none-any.whl (388 kB)
+Downloading jupyterlab_server-2.28.0-py3-none-any.whl (59 kB)
+Downloading jupyterlab_widgets-3.0.16-py3-none-any.whl (914 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 914.9/914.9 kB 90.7 MB/s eta 0:00:00
+Downloading kiwisolver-1.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 111.1 MB/s eta 0:00:00
+Downloading lightning_utilities-0.15.2-py3-none-any.whl (29 kB)
+Downloading markdown-3.10-py3-none-any.whl (107 kB)
+Downloading notebook_shim-0.2.4-py3-none-any.whl (13 kB)
+Downloading packaging-25.0-py3-none-any.whl (66 kB)
+Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 142.3 MB/s eta 0:00:00
+Downloading protobuf-6.33.0-cp39-abi3-manylinux2014_x86_64.whl (323 kB)
+Downloading pyparsing-3.2.5-py3-none-any.whl (113 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 123.6 MB/s eta 0:00:00
+Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 145.4 MB/s eta 0:00:00
+Downloading torchmetrics-1.8.2-py3-none-any.whl (983 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 983.2/983.2 kB 95.3 MB/s eta 0:00:00
+Downloading tornado-6.5.2-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (443 kB)
+Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading widgetsnbextension-4.0.15-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 114.2 MB/s eta 0:00:00
+Downloading aiohttp-3.13.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 136.1 MB/s eta 0:00:00
+Downloading anyio-4.11.0-py3-none-any.whl (109 kB)
+Downloading argon2_cffi-25.1.0-py3-none-any.whl (14 kB)
+Downloading babel-2.17.0-py3-none-any.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 164.8 MB/s eta 0:00:00
+Downloading debugpy-1.8.17-cp312-cp312-manylinux_2_34_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 192.9 MB/s eta 0:00:00
+Downloading decorator-5.2.1-py3-none-any.whl (9.2 kB)
+Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl (8.1 kB)
+Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 54.6 MB/s eta 0:00:00
+Downloading json5-0.12.1-py3-none-any.whl (36 kB)
+Downloading jsonschema-4.25.1-py3-none-any.whl (90 kB)
+Downloading jupyter_client-8.6.3-py3-none-any.whl (106 kB)
+Downloading jupyter_events-0.12.0-py3-none-any.whl (19 kB)
+Downloading jupyter_server_terminals-0.5.3-py3-none-any.whl (13 kB)
+Downloading matplotlib_inline-0.2.1-py3-none-any.whl (9.5 kB)
+Downloading nbconvert-7.16.6-py3-none-any.whl (258 kB)
+Downloading nbformat-5.10.4-py3-none-any.whl (78 kB)
+Downloading nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Downloading platformdirs-4.5.0-py3-none-any.whl (18 kB)
+Downloading prometheus_client-0.23.1-py3-none-any.whl (61 kB)
+Downloading prompt_toolkit-3.0.52-py3-none-any.whl (391 kB)
+Downloading psutil-7.1.3-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (263 kB)
+Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 123.5 MB/s eta 0:00:00
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading pyzmq-27.1.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (840 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 841.0/841.0 kB 81.8 MB/s eta 0:00:00
+Downloading Send2Trash-1.8.3-py3-none-any.whl (18 kB)
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading terminado-0.18.1-py3-none-any.whl (14 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Downloading websocket_client-1.9.0-py3-none-any.whl (82 kB)
+Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading asttokens-3.0.0-py3-none-any.whl (26 kB)
+Downloading attrs-25.4.0-py3-none-any.whl (67 kB)
+Downloading bleach-6.3.0-py3-none-any.whl (164 kB)
+Downloading executing-2.2.1-py2.py3-none-any.whl (28 kB)
+Downloading fastjsonschema-2.21.2-py3-none-any.whl (24 kB)
+Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading mistune-3.1.4-py3-none-any.whl (53 kB)
+Downloading multidict-6.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (256 kB)
+Downloading nbclient-0.10.2-py3-none-any.whl (25 kB)
+Downloading pandocfilters-1.5.1-py2.py3-none-any.whl (8.7 kB)
+Downloading parso-0.8.5-py2.py3-none-any.whl (106 kB)
+Downloading propcache-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (221 kB)
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Downloading python_json_logger-4.0.0-py3-none-any.whl (15 kB)
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)
+Downloading rpds_py-0.28.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (386 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Downloading yarl-1.22.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (377 kB)
+Downloading argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (87 kB)
+Downloading beautifulsoup4-4.14.2-py3-none-any.whl (106 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl (15 kB)
+Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+Downloading wcwidth-0.2.14-py2.py3-none-any.whl (37 kB)
+Downloading jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+Downloading rfc3987_syntax-1.1.0-py3-none-any.whl (8.0 kB)
+Downloading soupsieve-2.8-py3-none-any.whl (36 kB)
+Downloading tinycss2-1.4.0-py3-none-any.whl (26 kB)
+Downloading webcolors-25.10.0-py3-none-any.whl (14 kB)
+Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Downloading fqdn-1.5.1-py3-none-any.whl (9.1 kB)
+Downloading isoduration-20.11.0-py3-none-any.whl (11 kB)
+Downloading uri_template-1.3.0-py3-none-any.whl (11 kB)
+Downloading arrow-1.4.0-py3-none-any.whl (68 kB)
+Downloading lark-1.3.1-py3-none-any.whl (113 kB)
+Installing collected packages: webencodings, pytz, pure-eval, ptyprocess, fastjsonschema, widgetsnbextension, werkzeug, websocket-client, webcolors, wcwidth, uri-template, tzdata, traitlets, tqdm, tornado, tinycss2, tensorboard-data-server, tabulate, sympy, soupsieve, sniffio, six, send2trash, rpds-py, rfc3986-validator, pyzmq, python-json-logger, pyparsing, pygments, psutil, protobuf, propcache, prometheus-client, platformdirs, pillow, pexpect, parso, pandocfilters, packaging, nest-asyncio, multidict, mistune, markdown, lark, kiwisolver, jupyterlab_widgets, jupyterlab-pygments, jsonpointer, json5, h11, grpcio, fsspec, frozenlist, fqdn, fonttools, executing, defusedxml, decorator, debugpy, cycler, contourpy, comm, bleach, babel, attrs, async-lru, asttokens, aiohappyeyeballs, absl-py, yarl, terminado, tensorboard, stack_data, rfc3987-syntax, rfc3339-validator, referencing, python-dateutil, prompt_toolkit, matplotlib-inline, lightning-utilities, jupyter-core, jedi, ipython-pygments-lexers, httpcore, beautifulsoup4, argon2-cffi-bindings, anyio, aiosignal, torchmetrics, pandas, matplotlib, jupyter-server-terminals, jupyter-client, jsonschema-specifications, ipython, httpx, arrow, argon2-cffi, aiohttp, seaborn, jsonschema, isoduration, ipywidgets, ipykernel, pytorch-lightning, nbformat, nbclient, jupyter-events, nbconvert, jupyter-server, notebook-shim, jupyterlab-server, jupyter-lsp, jupyterlab, notebook
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.14.0
+    Uninstalling sympy-1.14.0:
+      Successfully uninstalled sympy-1.14.0
+  Attempting uninstall: pillow
+    Found existing installation: pillow 11.1.0
+    Uninstalling pillow-11.1.0:
+      Successfully uninstalled pillow-11.1.0
+Successfully installed absl-py-2.3.1 aiohappyeyeballs-2.6.1 aiohttp-3.13.2 aiosignal-1.4.0 anyio-4.11.0 argon2-cffi-25.1.0 argon2-cffi-bindings-25.1.0 arrow-1.4.0 asttokens-3.0.0 async-lru-2.0.5 attrs-25.4.0 babel-2.17.0 beautifulsoup4-4.14.2 bleach-6.3.0 comm-0.2.3 contourpy-1.3.3 cycler-0.12.1 debugpy-1.8.17 decorator-5.2.1 defusedxml-0.7.1 executing-2.2.1 fastjsonschema-2.21.2 fonttools-4.60.1 fqdn-1.5.1 frozenlist-1.8.0 fsspec-2025.10.0 grpcio-1.76.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 ipykernel-7.1.0 ipython-9.7.0 ipython-pygments-lexers-1.1.1 ipywidgets-8.1.8 isoduration-20.11.0 jedi-0.19.2 json5-0.12.1 jsonpointer-3.0.0 jsonschema-4.25.1 jsonschema-specifications-2025.9.1 jupyter-client-8.6.3 jupyter-core-5.9.1 jupyter-events-0.12.0 jupyter-lsp-2.3.0 jupyter-server-2.17.0 jupyter-server-terminals-0.5.3 jupyterlab-4.4.10 jupyterlab-pygments-0.3.0 jupyterlab-server-2.28.0 jupyterlab_widgets-3.0.16 kiwisolver-1.4.9 lark-1.3.1 lightning-utilities-0.15.2 markdown-3.10 matplotlib-3.10.7 matplotlib-inline-0.2.1 mistune-3.1.4 multidict-6.7.0 nbclient-0.10.2 nbconvert-7.16.6 nbformat-5.10.4 nest-asyncio-1.6.0 notebook-7.4.7 notebook-shim-0.2.4 packaging-25.0 pandas-2.3.3 pandocfilters-1.5.1 parso-0.8.5 pexpect-4.9.0 pillow-12.0.0 platformdirs-4.5.0 prometheus-client-0.23.1 prompt_toolkit-3.0.52 propcache-0.4.1 protobuf-6.33.0 psutil-7.1.3 ptyprocess-0.7.0 pure-eval-0.2.3 pygments-2.19.2 pyparsing-3.2.5 python-dateutil-2.9.0.post0 python-json-logger-4.0.0 pytorch-lightning-2.4.0 pytz-2025.2 pyzmq-27.1.0 referencing-0.37.0 rfc3339-validator-0.1.4 rfc3986-validator-0.1.1 rfc3987-syntax-1.1.0 rpds-py-0.28.0 seaborn-0.13.2 send2trash-1.8.3 six-1.17.0 sniffio-1.3.1 soupsieve-2.8 stack_data-0.6.3 sympy-1.13.1 tabulate-0.9.0 tensorboard-2.17.1 tensorboard-data-server-0.7.2 terminado-0.18.1 tinycss2-1.4.0 torchmetrics-1.8.2 tornado-6.5.2 tqdm-4.67.1 traitlets-5.14.3 tzdata-2025.2 uri-template-1.3.0 wcwidth-0.2.14 webcolors-25.10.0 webencodings-0.5.1 websocket-client-1.9.0 werkzeug-3.1.3 widgetsnbextension-4.0.15 yarl-1.22.0
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate dl2025
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
