@@ -36,17 +36,17 @@ class TestCausalSelfAttention(unittest.TestCase):
         for t in range(T):
             self.assertTrue(torch.allclose(att_probs[0, :, t, t+1:], torch.zeros_like(att_probs[0, :, t, t+1:])))
 
-    # def test_apply_rotary_emb(self):
-    #     config = MockConfig()
-    #     module = CausalSelfAttention(config)
-    #     B, T, n_head, dim = 1, 5, config.n_head, config.n_embd // config.n_head
-    #     xq = torch.randn(B, n_head, T, dim)
-    #     xk = torch.randn(B, n_head, T, dim)
-    #     xq_rot, xk_rot = module.apply_rotary_emb(xq, xk, T)
-    #     self.assertEqual(xq_rot.shape, xq.shape)
-    #     self.assertEqual(xk_rot.shape, xk.shape)
-    #     self.assertTrue(torch.allclose(xq.norm(dim=-1), xq_rot.norm(dim=-1), atol=1e-5))
-    #     self.assertTrue(torch.allclose(xk.norm(dim=-1), xk_rot.norm(dim=-1), atol=1e-5))
+    def test_apply_rotary_emb(self):
+        config = MockConfig()
+        module = CausalSelfAttention(config)
+        B, T, n_head, dim = 1, 5, config.n_head, config.n_embd // config.n_head
+        xq = torch.randn(B, n_head, T, dim)
+        xk = torch.randn(B, n_head, T, dim)
+        xq_rot, xk_rot = module.apply_rotary_emb(xq, xk, T)
+        self.assertEqual(xq_rot.shape, xq.shape)
+        self.assertEqual(xk_rot.shape, xk.shape)
+        self.assertTrue(torch.allclose(xq.norm(dim=-1), xq_rot.norm(dim=-1), atol=1e-5))
+        self.assertTrue(torch.allclose(xk.norm(dim=-1), xk_rot.norm(dim=-1), atol=1e-5))
 
 
     def test_gradient_flow(self):
