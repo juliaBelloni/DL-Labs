@@ -129,12 +129,15 @@ class CausalSelfAttention(nn.Module):
         B, T, C = x.size() # batch size, sequence length, embedding dimensionality (n_embd)
 
         # calculate query, key, values for all heads in batch and move head forward to be the batch dim
-        # Split output of attention-head in query, key and value
-        q, k ,v  = ...
+        qkv = self.c_attn(x)  # shape is (B, T, 3 * C)
 
-        q = ...
-        k = ...
-        v = ...
+        # Split output of attention-head in query, key and value
+        q, k ,v  = qkv.split(self.n_embd, dim=2) # shape is (B, T, C)
+
+        # first view so that we can separate the heads (so add an extra dimension), then transpose so that the head is before the sequence length -> (B, nh, T, hs)
+        q = q.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
+        k = k.view(B, T, self.n_head, C // self.n_head).transpose(1, 2) 
+        v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
 
         if not self.config.abs_emb:
             q, k = self.apply_rotary_emb(q, k, T)
@@ -147,10 +150,19 @@ class CausalSelfAttention(nn.Module):
             y = ...
         else:
             # Compute attention scores
-            att = ... 
+            d_k = k.size(-1)
+            att = torch.matmul(q, k.transpose(-2, -1)) # dot-product attention
+            att = att / math.sqrt(d_k) # scale the attention scores
+
             # Apply causal mask
+            att = att.masked_fill(self.mask[:,:,T,T] == 0, -torch.inf)
+            att = torch.softmax(att, dim=-1)
+            att = self.attn_dropout(att)
+            print(torch.allclose(att.sum(dim=-1), torch.ones_like(att.sum(dim=-1)), atol=1e-5))
+            
+
             # Apply attention to the values
-            y = ... # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
+            y = att @ v # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
         y = y.transpose(1, 2).contiguous().view(B, T, C) # re-assemble all head outputs side by side
 
         # output projection
