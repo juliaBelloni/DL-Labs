@@ -148,6 +148,9 @@ class CausalSelfAttention(nn.Module):
 
         if self.use_flash_attn:
             y = ...
+            # mask = self.mask[:,:,:T,:T]
+            # p_drop = self.config.attn_pdrop
+            # y = F.scaled_dot_product_attention(q,k,v, dropout_p= p_drop, is_causal= True, scale = True)
         else:
             # Compute attention scores
             d_k = k.size(-1)
@@ -155,11 +158,9 @@ class CausalSelfAttention(nn.Module):
             att = att / math.sqrt(d_k) # scale the attention scores
 
             # Apply causal mask
-            att = att.masked_fill(self.mask[:,:,T,T] == 0, -torch.inf)
+            att = att.masked_fill(self.mask[:,:,:T,:T] == 0, -float('inf'))
             att = torch.softmax(att, dim=-1)
             att = self.attn_dropout(att)
-            print(torch.allclose(att.sum(dim=-1), torch.ones_like(att.sum(dim=-1)), atol=1e-5))
-            
 
             # Apply attention to the values
             y = att @ v # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)

@@ -7,7 +7,7 @@ from gpt import CausalSelfAttention  # Replace with the actual import path
 
 
 class MockConfig:
-    def __init__(self, n_embd=64, n_head=8, attn_pdrop=0, resid_pdrop=0.1, block_size=128, use_flash_attn=False, abs_emb=True):
+    def __init__(self, n_embd=64, n_head=8, attn_pdrop=0, resid_pdrop=0.1, block_size=128, use_flash_attn=False, abs_emb=False):
         self.n_embd = n_embd
         self.n_head = n_head
         self.attn_pdrop = attn_pdrop
