@@ -112,20 +112,22 @@ class CausalSelfAttention(nn.Module):
             Tuple[torch.Tensor, torch.Tensor]: Tuple containing the modified query and key tensors.
         """
         # Generate RoPE embeddings dynamically based on T
-        seq_pos = ...  # Shape: (T)
-        freqs = ...    # Shape: (T, dim // 2)
-        pos_emb = ...  # Shape: (1, 1, T, dim)
-        
+        seq_pos = torch.arange(T)  # Shape: (T)
+        freqs = torch.outer(seq_pos, self.inv_freq)  # Shape: (T, dim // 2)
+        pos_emb = freqs.repeat_interleave(2, dim=-1).view(1, 1, T, -1)  # Shape: (1, 1, T, dim), turns [1,2,3,4] to [1,1,2,2,3,3,4,4] because the frequencies capture 1 angle for every two dimensions
+
         # Split pos into sin and cos components, repeating each to match xq and xk dimensions
-        pos_sin = ...
-        pos_cos = ...
+        pos_sin = torch.sin(pos_emb[...,0::2]) # take only even token dimensionts
+        pos_cos = torch.cos(pos_emb[...,1::2])
         
         # Apply RoPE transformation: pair and rotate dimensions
         # Rotate query and key tensors
-        xq_rot = ...
-        xk_rot = ...
-        raise NotImplementedError
+        xq_even, xq_odd = xq[..., ::2], xq[..., 1::2]  # divide even and odd
+        xk_even, xk_odd = xk[..., ::2], xk[..., 1::2]
         
+        xq_rot =  torch.stack([pos_cos * xq_even - pos_sin * xq_odd, pos_sin * xq_even + pos_cos * xq_odd], dim=-1).view_as(xq)
+        xk_rot =  torch.stack([pos_cos * xk_even - pos_sin * xk_odd, pos_sin * xk_even + pos_cos * xk_odd], dim=-1).view_as(xk)
+
         return xq_rot, xk_rot
         
     def forward(self, x):
@@ -198,11 +200,22 @@ class TransformerDecoderBlock(nn.Module):
     """
     def __init__(self, config):
         super().__init__()
-        # Initialize the layers
-        raise NotImplementedError
+        self.layer_norm_1 = RMSNorm(dim=config.n_heads)
+        self.attention = CausalSelfAttention(config)
+        self.layer_norm_2 = RMSNorm(dim=config.n_heads)
+        self.mlpf = nn.Sequential(
+            nn.Linear(config.n_embd,4*config.n_embd),
+            BERTGELU(),
+            nn.Linear(4*config.n_embd, config.n_embd)
+        )
+        self.config = config
     def forward(self, x):
         # Forward pass through the Decoder Layer
-        out = ...
+        x = self.layer_norm_1(x)
+        x = x + self.attention(x) # residual connection, dropout already inside attention
+        x = self.layer_norm_2(x)
+        x = x + self.mlpf(x) # residual connection
+        out = nn.Dropout(self.config.resid_pdrop)(x)
         return out
 
 
