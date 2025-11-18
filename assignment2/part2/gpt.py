@@ -112,8 +112,8 @@ class CausalSelfAttention(nn.Module):
             Tuple[torch.Tensor, torch.Tensor]: Tuple containing the modified query and key tensors.
         """
         # Generate RoPE embeddings dynamically based on T
-        seq_pos = torch.arange(T)  # Shape: (T)
-        freqs = torch.outer(seq_pos, self.inv_freq)  # Shape: (T, dim // 2)
+        seq_pos = torch.arange(T, device=xq.device)  # Shape: (T)
+        freqs = torch.outer(seq_pos, self.inv_freq.to(seq_pos.device))  # Shape: (T, dim // 2)
         pos_emb = freqs.repeat_interleave(2, dim=-1).view(1, 1, T, -1)  # Shape: (1, 1, T, dim), turns [1,2,3,4] to [1,1,2,2,3,3,4,4] because the frequencies capture 1 angle for every two dimensions
 
         # Split pos into sin and cos components, repeating each to match xq and xk dimensions
@@ -152,13 +152,11 @@ class CausalSelfAttention(nn.Module):
         # Mask the calculated attention weights with the mask parameter.
 
         if self.use_flash_attn:
-            y = ...
-            # mask = self.mask[:,:,:T,:T]
-            # p_drop = self.config.attn_pdrop
-            # y = F.scaled_dot_product_attention(q,k,v, dropout_p= p_drop, is_causal= True, scale = True)
+            p_drop = self.config.attn_pdrop
+            y = F.scaled_dot_product_attention(q,k,v, attn_mask=self.mask[:,:,:T,:T], dropout_p= p_drop)
         else:
             # Compute attention scores
-            d_k = k.size(-1)
+            d_k = q.size(-1)
             att = torch.matmul(q, k.transpose(-2, -1)) # dot-product attention
             att = att / math.sqrt(d_k) # scale the attention scores
 
@@ -200,13 +198,14 @@ class TransformerDecoderBlock(nn.Module):
     """
     def __init__(self, config):
         super().__init__()
-        self.layer_norm_1 = RMSNorm(dim=config.n_heads)
+        self.layer_norm_1 = RMSNorm(dim=config.n_embd)
         self.attention = CausalSelfAttention(config)
-        self.layer_norm_2 = RMSNorm(dim=config.n_heads)
+        self.layer_norm_2 = RMSNorm(dim=config.n_embd)
         self.mlpf = nn.Sequential(
             nn.Linear(config.n_embd,4*config.n_embd),
             BERTGELU(),
-            nn.Linear(4*config.n_embd, config.n_embd)
+            nn.Linear(4*config.n_embd, config.n_embd),
+            nn.Dropout(config.resid_pdrop),
         )
         self.config = config
     def forward(self, x):
@@ -214,8 +213,7 @@ class TransformerDecoderBlock(nn.Module):
         x = self.layer_norm_1(x)
         x = x + self.attention(x) # residual connection, dropout already inside attention
         x = self.layer_norm_2(x)
-        x = x + self.mlpf(x) # residual connection
-        out = nn.Dropout(self.config.resid_pdrop)(x)
+        out = x + self.mlpf(x) # residual connection
         return out
 
 
@@ -420,7 +418,7 @@ class GPT(nn.Module):
         # Forward token and position embedders
         # token embeddings of shape (b, t, n_embd)
         # apply dropout to the tokens
-        tok_emb = self.transformer.w_token_emb(b, t)
+        tok_emb = self.transformer.w_token_emb(idx)
         tok_emb = self.transformer.drop(tok_emb)
 
         if self.config.abs_emb:
@@ -479,23 +477,46 @@ class GPT(nn.Module):
 
             # forward the model to get the logits for the index in the sequence
             # pluck the logits at the final step and scale by desired temperature
+            logits = self.forward(idx_cond)
+            logits = logits[:, -1, :] / temperature
 
             if not do_sample:
                 # take the most likely token
-                idx_next = ...
+                idx_next = logits.argmax(dim=-1, keepdim=True)
             
             else:
                 # apply softmax to convert logits to (normalized) probabilities
-
+                probs = F.softmax(logits, dim=-1)
                 # optionally only consider top-k logits for sampling. 
                 if top_k is not None:
-                    pass
+                    top_k_probs, _ = torch.topk(probs, top_k, dim=-1)
+                    lower_b = top_k_probs[:, -1].unsqueeze(-1)
+                    probs = torch.where(probs < lower_b, torch.zeros_like(probs), probs)
+                
 
                 # optionally apply top-p sampling
                 if top_p is not None:
-                    pass
+                    sorted_probs, sorted_idx = torch.sort(probs, descending=True, dim=-1)
+                    cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
+                    indices_to_remove = cumulative_probs > top_p
+                    indices_to_remove[..., 1:] = indices_to_remove[..., :-1].clone()
+                    indices_to_remove[..., 0] = False
+
+                    # scatter mask back to original ordering
+                    remove_mask = torch.zeros_like(probs, dtype=torch.bool)
+                    remove_mask.scatter_(1, sorted_idx, indices_to_remove)
+
+                    # zero them out
+                    probs = probs.masked_fill(remove_mask, 0.0)
+                
+                # renormalize the probabilities
+                probs = probs / probs.sum(dim=-1, keepdim=True)
+                # sample from the distribution
+                idx_next = torch.multinomial(probs, num_samples=1)
+                
+                
             
             # append sampled index to the running sequence and continue
-            idx = ...
+            idx = torch.cat((idx, idx_next), dim=-1)
 
         return idx
