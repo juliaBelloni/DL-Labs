@@ -419,7 +419,7 @@ class GPT(nn.Module):
         # token embeddings of shape (b, t, n_embd)
         # apply dropout to the tokens
         tok_emb = self.transformer.w_token_emb(idx)
-        tok_emb = self.transformer.drop(tok_emb)
+        
 
         if self.config.abs_emb:
             pos = torch.arange(0, t, dtype=torch.long, device=device).unsqueeze(0) # shape (1, t)
@@ -427,6 +427,7 @@ class GPT(nn.Module):
             x = tok_emb + pos_emb
         else:
             x = tok_emb
+        x = self.transformer.drop(x)
 
         # Iterate through the transformer blocks
         # Apply final layer normalization and linear layer to produce logits
@@ -471,6 +472,7 @@ class GPT(nn.Module):
                                 tokens, with shape (batch size, sequence length + max_new_tokens).
         """
         assert not (top_k and top_p), "You can only use one of top_k or top_p sampling"
+        self.eval() # disables dropout which would not happen with torch_inference alone
         for _ in range(max_new_tokens):
             # if the sequence context is growing too long we must crop it at block_size
             idx_cond = idx if idx.size(1) <= self.block_size else idx[:, -self.block_size:]
