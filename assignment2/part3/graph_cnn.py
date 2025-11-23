@@ -24,7 +24,13 @@ class MatrixGraphConvolution(nn.Module):
 
         Hint: A[i,j] -> there is an edge from node j to node i
         """
-        adjacency_matrix = ...
+        adjacency_matrix = torch.zeros((num_nodes, num_nodes), device=edge_index.device)
+        for src, dst in edge_index.t():
+            adjacency_matrix[dst, src] = 1.0
+
+        # more using torch_geometric library 
+        # adjacency_matrix = torch_geometric.utils.to_dense_adj(edge_index, max_num_nodes=num_nodes)
+        # adjacency_matrix = adjacency_matrix.squeeze(0).t().to(dtype=torch.float)
         return adjacency_matrix
 
     def make_inverted_degree_matrix(self, edge_index, num_nodes):
@@ -35,9 +41,9 @@ class MatrixGraphConvolution(nn.Module):
         :param num_nodes: number of nodes in the graph.
         :return: inverted degree matrix with shape [num_nodes, num_nodes]. Set degree of nodes without an edge to 1.
         """
-        degree_vector = ...
-        inverted_degree_vector = ...
-        inverted_degree_matrix = ...
+        degree_vector = torch.bincount(edge_index[1], minlength=num_nodes).to(device=edge_index.device)
+        inverted_degree_vector = torch.where(degree_vector==0, 0, 1.0 / degree_vector)
+        inverted_degree_matrix = torch.diag(inverted_degree_vector)
         return inverted_degree_matrix
 
     def forward(self, x, edge_index):
@@ -50,7 +56,8 @@ class MatrixGraphConvolution(nn.Module):
         """
         A = self.make_adjacency_matrix(edge_index, x.size(0))
         D_inv = self.make_inverted_degree_matrix(edge_index, x.size(0))
-        out = ...
+        
+        out = D_inv @ A @ x @ self.W.T + x @ self.B.T
         return out
 
 class MessageGraphConvolution(nn.Module):
@@ -73,10 +80,12 @@ class MessageGraphConvolution(nn.Module):
 
         Hint: check out torch.Tensor.index_add function
         """
-        messages = ...
-        aggregated_messages = ...
-        sum_weight = ...
-
+        messages = x[edge_index[0]]
+        aggregated_messages = torch.zeros_like(x, device=x.device)
+        aggregated_messages = aggregated_messages.index_add(0, edge_index[1], messages)
+        sum_weight = torch.bincount(edge_index[1], minlength=x.size(0)).to(x.dtype).unsqueeze(1)  # [num_nodes, 1]
+        sum_weight = sum_weight.clamp_min(1.0)
+        aggregated_messages = aggregated_messages / sum_weight
         return aggregated_messages
 
     def update(self, x, messages):
@@ -87,7 +96,8 @@ class MessageGraphConvolution(nn.Module):
         :param messages: messages vector with shape [num_nodes, num_in_features]
         :return: updated values of nodes. shape: [num_nodes, num_out_features]
         """
-        x = ...
+        x = messages @ self.W.T + x @ self.B.T
+
         return x
 
     def forward(self, x, edge_index):
