@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-import pytorch_lightning as L
+import lightning as L
 
 
 class LightningModelWrapper(L.LightningModule):

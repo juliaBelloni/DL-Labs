@@ -1,4 +1,4 @@
-from pytorch_lightning import LightningDataModule
+from lightning import LightningDataModule
 from torch_geometric.loader import NeighborLoader
 from torch_geometric.datasets import Planetoid
 
