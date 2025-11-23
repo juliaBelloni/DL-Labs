@@ -5,8 +5,8 @@
 #SBATCH --job-name=InstallEnvironment
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=9
-#SBATCH --time=01:00:00
-#SBATCH --output=slurm_output_part2_%a.out
+#SBATCH --time=00:20:00
+#SBATCH --output=slurm_generate_new_%j.out
 #SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=julia.belloni@student.uva.nl
 
@@ -22,4 +22,4 @@ conda activate dl2025
 
 #run code
 cd assignment2/part2
-srun python train.py --num_epochs 5
+srun python generate.py --model_weights_folder ./logs/gpt-mini/version_0/checkpoints --prompt "Once upon a time there" --num_generated_tokens 200 --num_samples 10

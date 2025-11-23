@@ -1,0 +1,68 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2454/DL-Labs/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Once upon a time there
+was a beautiful eyes here. In the morning he would always be seen and had eaten, the
+mill her sweethearted her brached, the man said to him, ‘What is this? You are not
+eating or drink, and die of hun
+--------------------------------------------------------------------------------
+Once upon a time there was a golden key, and when
+she turned it the door sprang open, and the manikin carried her back to
+the royal palace, and laid her in her head, and said: ‘All this must be spun,
+the ugl, do not have s
+--------------------------------------------------------------------------------
+Once upon a time there was a widow who had threw down deadly peeped through a company of grom, distributing or
+creating derivative works me for me, I will make you very happy. You must be very called Sultan ‘to
+your hand, 
+--------------------------------------------------------------------------------
+Once upon a time there was a golden key, and when
+she turned it thoroughly, she said a king, he shot her heart glittered and flashed so
+that the rays fell into the spring after her ball, but it was very deep, so
+deep that 
+--------------------------------------------------------------------------------
+Once upon a time there was a widow who had two daughters of her own, but
+he slept all on combing and curling her
+hair. All the land took the piece of food and ran as if the wild husband were
+computed. So the little tailor 
+--------------------------------------------------------------------------------
+Once upon a time there was a golden key, and when she felt that more hay was
+only possible that we people get is immediately burnt up without her
+legs to the most beautiful robes; and have the best thought that the wolf wa
+--------------------------------------------------------------------------------
+Once upon a time there was a golden knocked the hanged men against each
+other, and they moved backwards and forwards, he thought to himself:
+‘If you shiver below by the fire, how those up something was brought before
+him. 
+--------------------------------------------------------------------------------
+Once upon a time there was a widow weather that I am I?’ and warm that he
+wanted to live in his fair gown and revenge. So she cried out, ‘The king’s
+daughter wants a husband; but whoever seeing it, and lay on his daughters
+--------------------------------------------------------------------------------
+Once upon a time there was a jingling all round and round about the circle, but
+just the same stones for him, she found only a white dove; and it said to her,
+‘Seven years must I shall find a way out, and ordered the man t
+--------------------------------------------------------------------------------
+Once upon a time there was a widot, as early a drink of which is
+snow, it was a magical dance. In a nighty the dog eit burning to the
+forest where the enemy came the parlour
+the youth again said quite loudly: ‘If I could b
