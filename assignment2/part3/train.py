@@ -1,7 +1,7 @@
-import lightning
-from lightning import Trainer
-from lightning.pytorch.callbacks import ModelCheckpoint
-from lightning.pytorch.loggers import TensorBoardLogger
+import pytorch_lightning as lightning
+from pytorch_lightning import Trainer
+from pytorch_lightning.callbacks import ModelCheckpoint
+from pytorch_lightning.loggers import TensorBoardLogger
 
 from config import get_config
 from dataset import get_dataset, DataModule
