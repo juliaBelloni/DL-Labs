@@ -2,7 +2,8 @@ import torch.nn as nn
 import torch
 
 import torch.nn.functional as F
-from torch_geometric.utils import add_self_loops
+from torch_geometric.utils import add_self_loops, to_dense_adj
+
 
 
 class MatrixGraphConvolution(nn.Module):
@@ -24,13 +25,14 @@ class MatrixGraphConvolution(nn.Module):
 
         Hint: A[i,j] -> there is an edge from node j to node i
         """
-        adjacency_matrix = torch.zeros((num_nodes, num_nodes), device=edge_index.device)
-        for src, dst in edge_index.t():
-            adjacency_matrix[dst, src] = 1.0
+        # inefficient solution
+        # adjacency_matrix = torch.zeros((num_nodes, num_nodes), device=edge_index.device)
+        # for src, dst in edge_index.t():
+        #     adjacency_matrix[dst, src] = 1.0
 
-        # more using torch_geometric library 
-        # adjacency_matrix = torch_geometric.utils.to_dense_adj(edge_index, max_num_nodes=num_nodes)
-        # adjacency_matrix = adjacency_matrix.squeeze(0).t().to(dtype=torch.float)
+        # more using torch_geometric library
+        adjacency_matrix = to_dense_adj(edge_index, max_num_nodes=num_nodes)
+        adjacency_matrix = adjacency_matrix.squeeze(0).t().to(dtype=torch.float)
         return adjacency_matrix
 
     def make_inverted_degree_matrix(self, edge_index, num_nodes):
@@ -125,7 +127,7 @@ class GraphAttention(nn.Module):
         :param debug: used for tests
         :return: updated values of nodes. shape: [num_nodes, num_out_features]
         :return: debug data for tests:
-                 messages -> messages vector with shape [num_nodes, num_out_features], i.e. Wh from Veličković et al.
+                 messages -> messages vector with shape [num_nodes + num_edges, num_out_features], i.e. Wh from Veličković et al.
                  edge_weights_numerator -> unnormalized edge weightsm i.e. exp(e_ij) from Veličković et al.
                  softmax_denominator -> per destination softmax normalizer
 
@@ -138,17 +140,24 @@ class GraphAttention(nn.Module):
         edge_index, _ = add_self_loops(edge_index)
 
         sources, destinations = edge_index
-        activations = ...
-        messages = ...
+        
+        
+        activations = x @ self.W.T # [num_nodes, num_out_features]
+        messages = torch.cat([activations[destinations], activations[sources]], dim = -1) # [num_edges, 2*num_out_features]
+        print(x.shape, activations.shape)
+        print(x[sources].shape, x[destinations].shape)
 
-        attention_inputs = ...
+        attention_inputs = F.leaky_relu(messages @ self.a) # [num_edges, 1]
 
-        edge_weights_numerator = ...
-        weighted_messages = ...
+        edge_weights_numerator = torch.exp(attention_inputs) # [num_edges, 1]
 
-        softmax_denominator = ...
+        weighted_messages =  activations[sources] * edge_weights_numerator.reshape(-1, 1)  # [num_edges, num_out_features]
 
-        aggregated_messages = ...
-        return aggregated_messages, {'edge_weights': edge_weights_numerator, 'softmax_weights': softmax_denominator,
-                                     'messages': messages}
+        softmax_denominator = torch.zeros(x.size(0), device=x.device).index_add(0, destinations, edge_weights_numerator)  # [num_nodes]
 
+        aggregated_messages = torch.zeros_like(activations, device=x.device).index_add(0, destinations, weighted_messages)  / softmax_denominator.reshape(-1, 1)  # [num_nodes, num_out_features]
+        
+        if debug:
+            return aggregated_messages, {'edge_weights': edge_weights_numerator, 'softmax_weights': softmax_denominator,
+                                        'messages': messages}
+        return aggregated_messages
