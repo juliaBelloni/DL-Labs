@@ -29,6 +29,7 @@ def get_config():
 
     else:
         config.device = torch.device("mps")
+    print(f"Using device: {config.device}")
 
     config.progress_bar = True
     config.log_dir = './logs'
