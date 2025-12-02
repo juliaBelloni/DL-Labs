@@ -28,7 +28,7 @@ def get_config():
                 "and/or you do not have an MPS-enabled device on this machine.")
 
     else:
-        config.device = torch.device("mps")
+        config.device = 'mps'
 
     config.progress_bar = True
     config.log_dir = './logs'

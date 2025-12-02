@@ -143,13 +143,10 @@ class GraphAttention(nn.Module):
         
         
         activations = x @ self.W.T # [num_nodes, num_out_features]
-        messages = torch.cat([activations[destinations], activations[sources]], dim = -1) # [num_edges, 2*num_out_features]
-        print(x.shape, activations.shape)
-        print(x[sources].shape, x[destinations].shape)
+        messages =  activations[sources]
+        attention_inputs =torch.cat([activations[destinations], activations[sources]], dim = -1) # [num_edges, 2*num_out_features]
 
-        attention_inputs = F.leaky_relu(messages @ self.a) # [num_edges, 1]
-
-        edge_weights_numerator = torch.exp(attention_inputs) # [num_edges, 1]
+        edge_weights_numerator = torch.exp(F.leaky_relu(attention_inputs @ self.a)) # [num_edges, 1]
 
         weighted_messages =  activations[sources] * edge_weights_numerator.reshape(-1, 1)  # [num_edges, num_out_features]
 
