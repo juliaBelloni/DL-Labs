@@ -1,0 +1,79 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2454/DL-Labs/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Once upon a time there
+was a beautiful sweet cake and a
+bottle of wine that he had worked hard for his master. At last he said,
+‘Master, my small peasant, for I marry anyone I learn how to shudder.’ ‘If that is
+a great tri
+--------------------------------------------------------------------------------
+Once upon a time there was a golden key, and when
+she turned it the door sprang open, and the manikin carried her back to
+the royal palace, and looked so fine and
+beautiful in her rich clothes; and they never once thought 
+--------------------------------------------------------------------------------
+Once upon a time there was a jingling all round about
+her, and the bells rang at each step which she took. Then she was
+alarmed, and became uncertain whether she really was Clever Elsie or
+not, and said: ‘Is it I, or is it
+--------------------------------------------------------------------------------
+Once upon a time there was a golden key, and when
+she turned it thoroughly, she cried up to her, ‘Would Gretel. I am
+so clever I must have not to the truth.’ The king, however, had not quite hidden
+himself, for his ears st
+--------------------------------------------------------------------------------
+Once upon a time there was a widow who had two daughters of her own, but
+he slept all on lost, listened, and went in and offered to take possession
+of it, but sometimes an eagle or a hawk flying over it, and had broken his
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2454/DL-Labs/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+A Multilayer Perceptron is a universally) known
+for the collection of over two hundred folk tales they might lie
+ Underney, not take care another kind of course; was still not suffer he
+should be, flew up to the village where the two inns
+--------------------------------------------------------------------------------
+A Multilayer Perceptron is a universal. ‘We will not part with her for
+all the gold in the world.’ And she cried out, ‘Keep it, it will be just the
+sickness leave him, and was as strong and well as in his younger days.
+Then they went to t
+--------------------------------------------------------------------------------
+A Multilayer Perceptron is a universally) looked on the other side of the
+lake there was a garden, and she saw that it was King Grisly-beard, who was
+making sport of her. However, he kept far hop, and looked so fine and
+beautiful if we ca
+--------------------------------------------------------------------------------
+A Multilayer Perceptron is a universally from the parson, and the quilt,
+and was quite satisfied, and sat himself down again; but when he had clambered down the
+wall he was terrified, and said to himself, ‘I will remain here and wait for
+
+--------------------------------------------------------------------------------
+A Multilayer Perceptron is a universally) and 4
+      terms from this work, or any files containing a part of this
+work until the atance where they wished to pass, and it immediately flew open. And the king then grew
+old under the sun sho

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#SBATCH --partition=gpu_a100
+#SBATCH --partition=gpu_mig
 #SBATCH --gpus=1
-#SBATCH --job-name=InstallEnvironment
+#SBATCH --job-name=Part3
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=9
-#SBATCH --time=01:30:00
+#SBATCH --time=00:20:00
 #SBATCH --output=slurm_output_part3_%A.out
 #SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=julia.belloni@student.uva.nl

@@ -1,0 +1,87 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+[rank: 0] Seed set to 42
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+You are using a CUDA device ('NVIDIA A100-SXM4-40GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name  | Type    | Params | Mode 
+------------------------------------------
+0 | model | GraphNN | 357 K  | train
+------------------------------------------
+357 K     Trainable params
+0         Non-trainable params
+357 K     Total params
+1.428     Total estimated model params size (MB)
+4         Modules in train mode
+0         Modules in eval mode
+SLURM auto-requeueing enabled. Setting signal handlers.
+MPS not available because the current PyTorch install was not built with MPS enabled.
+Using device: cuda
+/home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages/torch_geometric/loader/neighbor_loader.py:229: UserWarning: Using 'NeighborSampler' without a 'pyg-lib' installation is deprecated and will be removed soon. Please install 'pyg-lib' for accelerated neighborhood sampling
+  neighbor_sampler = NeighborSampler(
+/home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages/torch/utils/data/dataloader.py:617: UserWarning: This DataLoader will create 15 worker processes in total. Our suggested max number of worker in current system is 9, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+/home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages/lightning/pytorch/loops/fit_loop.py:310: The number of training batches (1) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  3.95it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training: |          | 0/? [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.79it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.78it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 243.63it/s][A
+                                                                       [AEpoch 0: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=1]Epoch 0: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=1]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 1: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=1]Epoch 1: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 286.99it/s][A
+                                                                       [AEpoch 1: 100%|██████████| 1/1 [00:02<00:00,  0.44it/s, v_num=1]Epoch 1: 100%|██████████| 1/1 [00:02<00:00,  0.44it/s, v_num=1]Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 2: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=1]Epoch 2: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 285.83it/s][A
+                                                                       [AEpoch 2: 100%|██████████| 1/1 [00:02<00:00,  0.43it/s, v_num=1]Epoch 2: 100%|██████████| 1/1 [00:02<00:00,  0.43it/s, v_num=1]Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 3: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=1]Epoch 3: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 296.08it/s][A
+                                                                       [AEpoch 3: 100%|██████████| 1/1 [00:02<00:00,  0.43it/s, v_num=1]Epoch 3: 100%|██████████| 1/1 [00:02<00:00,  0.43it/s, v_num=1]Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 4: 100%|██████████| 1/1 [00:01<00:00,  0.86it/s, v_num=1]Epoch 4: 100%|██████████| 1/1 [00:01<00:00,  0.86it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 292.90it/s][A
+                                                                       [AEpoch 4: 100%|██████████| 1/1 [00:02<00:00,  0.41it/s, v_num=1]Epoch 4: 100%|██████████| 1/1 [00:02<00:00,  0.41it/s, v_num=1]Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 5: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=1]Epoch 5: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 287.99it/s][A
+                                                                       [AEpoch 5: 100%|██████████| 1/1 [00:02<00:00,  0.42it/s, v_num=1]Epoch 5: 100%|██████████| 1/1 [00:02<00:00,  0.42it/s, v_num=1]Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 6: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=1]Epoch 6: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 293.04it/s][A
+                                                                       [AEpoch 6: 100%|██████████| 1/1 [00:02<00:00,  0.44it/s, v_num=1]Epoch 6: 100%|██████████| 1/1 [00:02<00:00,  0.44it/s, v_num=1]Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 7: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=1]Epoch 7: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 286.52it/s][A
+                                                                       [AEpoch 7: 100%|██████████| 1/1 [00:02<00:00,  0.45it/s, v_num=1]Epoch 7: 100%|██████████| 1/1 [00:02<00:00,  0.45it/s, v_num=1]Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=1]Epoch 8: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=1]Epoch 8: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 285.04it/s][A
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2025-12-03T16:34:11.805] error: *** STEP 17091716.0 ON gcn35 CANCELLED AT 2025-12-03T16:34:11 DUE to SIGNAL Terminated ***
+[2025-12-03T16:34:11.806] error: *** JOB 17091716 ON gcn35 CANCELLED AT 2025-12-03T16:34:11 DUE to SIGNAL Terminated ***

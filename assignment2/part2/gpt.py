@@ -472,7 +472,7 @@ class GPT(nn.Module):
                                 tokens, with shape (batch size, sequence length + max_new_tokens).
         """
         assert not (top_k and top_p), "You can only use one of top_k or top_p sampling"
-        self.eval() # disables dropout which would not happen with torch_inference alone
+
         for _ in range(max_new_tokens):
             # if the sequence context is growing too long we must crop it at block_size
             idx_cond = idx if idx.size(1) <= self.block_size else idx[:, -self.block_size:]
@@ -483,6 +483,7 @@ class GPT(nn.Module):
             logits = logits[:, -1, :] / temperature
 
             if not do_sample:
+                # print("Greedy sampling")
                 # take the most likely token
                 idx_next = logits.argmax(dim=-1, keepdim=True)
             
@@ -491,6 +492,7 @@ class GPT(nn.Module):
                 probs = F.softmax(logits, dim=-1)
                 # optionally only consider top-k logits for sampling. 
                 if top_k is not None:
+                    # print("Top-k sampling with k =", top_k)
                     top_k_probs, _ = torch.topk(probs, top_k, dim=-1)
                     lower_b = top_k_probs[:, -1].unsqueeze(-1)
                     probs = torch.where(probs < lower_b, torch.zeros_like(probs), probs)
@@ -498,6 +500,7 @@ class GPT(nn.Module):
 
                 # optionally apply top-p sampling
                 if top_p is not None:
+                    # print("Top-p sampling with p =", top_p)
                     sorted_probs, sorted_idx = torch.sort(probs, descending=True, dim=-1)
                     cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
                     indices_to_remove = cumulative_probs > top_p
