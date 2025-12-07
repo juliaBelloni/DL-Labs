@@ -100,8 +100,12 @@ class CNNDecoder(nn.Module):
         # PUT YOUR CODE HERE  #
         #######################
         c_hid = num_filters
+        self.linear = nn.Sequential(
+            nn.Linear(z_dim, 2*16*c_hid),
+            nn.GELU()
+        )
         self.decoder = nn.Sequential(
-            nn.ConvTranspose2d(2*c_hid, 2*c_hid, kernel_size=3, output_padding=1, padding=2, stride=2), # 4x4 => 8x8
+            nn.ConvTranspose2d(2*c_hid, 2*c_hid, kernel_size=3, padding=1, stride=2), # 4x4 => 8x8
             nn.GELU(),
             nn.Conv2d(2*c_hid, 2*c_hid, kernel_size=3, padding=1),
             nn.GELU(),
@@ -129,7 +133,11 @@ class CNNDecoder(nn.Module):
         #######################
         # PUT YOUR CODE HERE  #
         #######################
-        x = self.decoder(z)
+        x = self.linear(z)
+
+        # reshape to image grid
+        x = x.reshape(x.shape[0], -1, 4, 4)
+        x = self.decoder(x)
         #######################
         # END OF YOUR CODE    #
         #######################
