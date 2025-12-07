@@ -23,4 +23,4 @@ conda activate dl2025
 #run code
 cd assignment3/part1
 srun python train_pl.py
-srun python train_pl.py --z_dim=2 
+# srun python train_pl.py --z_dim=2 
