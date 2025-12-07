@@ -35,8 +35,11 @@ def sample_reparameterize(mean, std):
     #######################
     # PUT YOUR CODE HERE  #
     #######################
-    z = None
-    raise NotImplementedError
+    shape = mean.shape
+    mean_e = torch.zeros(shape)
+    var_e = torch.ones(shape)
+    e = torch.normal(mean_e, var_e)
+    z = mean + std*e
     #######################
     # END OF YOUR CODE    #
     #######################
@@ -58,8 +61,8 @@ def KLD(mean, log_std):
     #######################
     # PUT YOUR CODE HERE  #
     #######################
-    KLD = None
-    raise NotImplementedError
+    # the sum gets the total divergence per sample
+    KLD = 0.5*(torch.exp(2*log_std) + mean**2 - 1 - 2*log_std).sum(-1)
     #######################
     # END OF YOUR CODE    #
     #######################
@@ -78,8 +81,11 @@ def elbo_to_bpd(elbo, img_shape):
     #######################
     # PUT YOUR CODE HERE  #
     #######################
-    bpd = None
-    raise NotImplementedError
+    # making metric comparable for images of different resolutions
+    avg_px = 1 / (img_shape[1] * img_shape[2] * img_shape[3])
+
+    # the log_2 is for convertion to a different base -> needed for entropy computation
+    bpd = elbo * np.log2(np.e) * avg_px
     #######################
     # END OF YOUR CODE    #
     #######################
