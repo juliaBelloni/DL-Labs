@@ -38,7 +38,22 @@ class CNNEncoder(nn.Module):
         #######################
         # PUT YOUR CODE HERE  #
         #######################
-        raise NotImplementedError
+        c_hid = num_filters
+        self.encoder = nn.Sequential(
+            nn.Conv2d(num_input_channels, c_hid, kernel_size=3, padding=1, stride=2), # 28x28 => 14x14
+            nn.GELU(),
+            nn.Conv2d(c_hid, c_hid, kernel_size=3, padding=1),
+            nn.GELU(),
+            nn.Conv2d(c_hid, 2*c_hid, kernel_size=3, padding=1, stride=2), # 14x14 => 7x7
+            nn.GELU(),
+            nn.Conv2d(2*c_hid, 2*c_hid, kernel_size=3, padding=1),
+            nn.GELU(),
+            nn.Conv2d(2*c_hid, 2*c_hid, kernel_size=3, padding=1, stride=2), # 7x7 => 3x3
+            nn.GELU(),
+            nn.Flatten(), # Image grid to single feature vector
+        )
+        self.mean = nn.Linear(2*16*c_hid, z_dim)
+        self.log_std = nn.Linear(2*16*c_hid, z_dim)
         #######################
         # END OF YOUR CODE    #
         #######################
@@ -56,9 +71,9 @@ class CNNEncoder(nn.Module):
         #######################
         # PUT YOUR CODE HERE  #
         #######################
-        mean = None
-        log_std = None
-        raise NotImplementedError
+        z = self.encoder(x) # [B, z_dim]
+        mean = self.mean(z) # [B, z_dim]
+        log_std = self.log_std(z) # [B, z_dim]
         #######################
         # END OF YOUR CODE    #
         #######################
@@ -84,7 +99,19 @@ class CNNDecoder(nn.Module):
         #######################
         # PUT YOUR CODE HERE  #
         #######################
-        raise NotImplementedError
+        c_hid = num_filters
+        self.decoder = nn.Sequential(
+            nn.ConvTranspose2d(2*c_hid, 2*c_hid, kernel_size=3, output_padding=1, padding=2, stride=2), # 4x4 => 8x8
+            nn.GELU(),
+            nn.Conv2d(2*c_hid, 2*c_hid, kernel_size=3, padding=1),
+            nn.GELU(),
+            nn.ConvTranspose2d(2*c_hid, c_hid, kernel_size=3, output_padding=1, padding=1, stride=2), # 8x8 => 16x16
+            nn.GELU(),
+            nn.Conv2d(c_hid, c_hid, kernel_size=3, padding=1),
+            nn.GELU(),
+            nn.ConvTranspose2d(c_hid, num_input_channels, kernel_size=3, output_padding=1, padding=1, stride=2), # 16x16 => 32x32
+            nn.Tanh() # The input images is scaled between -1 and 1, hence the output has to be bounded as well
+        )
         #######################
         # END OF YOUR CODE    #
         #######################
@@ -102,8 +129,7 @@ class CNNDecoder(nn.Module):
         #######################
         # PUT YOUR CODE HERE  #
         #######################
-        x = None
-        raise NotImplementedError
+        x = self.decoder(z)
         #######################
         # END OF YOUR CODE    #
         #######################
