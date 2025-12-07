@@ -114,7 +114,6 @@ class CNNDecoder(nn.Module):
             nn.Conv2d(c_hid, c_hid, kernel_size=3, padding=1),
             nn.GELU(),
             nn.ConvTranspose2d(c_hid, num_input_channels, kernel_size=3, output_padding=1, padding=1, stride=2), # 16x16 => 32x32
-            nn.Tanh() # The input images is scaled between -1 and 1, hence the output has to be bounded as well
         )
         #######################
         # END OF YOUR CODE    #
