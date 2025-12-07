@@ -36,8 +36,8 @@ def sample_reparameterize(mean, std):
     # PUT YOUR CODE HERE  #
     #######################
     shape = mean.shape
-    mean_e = torch.zeros(shape)
-    var_e = torch.ones(shape)
+    mean_e = torch.zeros(shape).to(mean.device)
+    var_e = torch.ones(shape).to(mean.device)
     e = torch.normal(mean_e, var_e)
     z = mean + std*e
     #######################
@@ -116,8 +116,15 @@ def visualize_manifold(decoder, grid_size=20):
     #######################
     # PUT YOUR CODE HERE  #
     #######################
-    img_grid = None
-    raise NotImplementedError
+    percentiles = (torch.arange(grid_size).float() + 0.5) / grid_size
+    z = torch.distributions.Normal(0,1).icdf(percentiles)
+    z1, z2 = torch.meshgrid(z, z, indexing='ij')  # both [grid_size, grid_size]
+    z_grid = torch.stack([z1.reshape(-1), z2.reshape(-1)], dim=1)
+    logits = decoder(z_grid)
+    probs = torch.softmax(logits, dim=1)  
+    x_samples = torch.argmax(probs, dim=1)  
+    x_samples = x_samples.unsqueeze(1)
+    img_grid = make_grid(x_samples.float() / 15, nrow=grid_size)
     #######################
     # END OF YOUR CODE    #
     #######################
