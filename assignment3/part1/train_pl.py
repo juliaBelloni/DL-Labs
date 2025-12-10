@@ -98,12 +98,12 @@ class VAE(pl.LightningModule):
         z_dim = self.hparams.z_dim
         mean = torch.zeros((batch_size, z_dim), device=self.device)
         std = torch.ones((batch_size, z_dim), device=self.device)
-        z = sample_reparameterize(mean, std)
+        z = torch.normal(mean, std)  # [B, z_dim]
         logits = self.decoder(z) # [B, 16, 28, 28]
 
         # convert to pixel values
         probs = F.softmax(logits, dim=1)
-        x_samples = torch.argmax(probs, dim=1) # [B, 28, 28]
+        x_samples = torch.multinomial(probs, num_samples=1).squeeze(1) # [B, 28, 28]
         x_samples = x_samples.unsqueeze(1)  # [B, 1, 28, 28]
         #######################
         # END OF YOUR CODE    #
