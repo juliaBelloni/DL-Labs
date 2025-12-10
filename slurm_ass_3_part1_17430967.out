@@ -1,0 +1,39 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+[rank: 0] Seed set to 42
+[INFO] The progress bar has been suppressed. For updates on the training progress, check the TensorBoard file at VAE_logs/lightning_logs/version_17430967. If you want to see the progress bar, use the argparse option "progress_bar".
+
+Traceback (most recent call last):
+  File "/gpfs/home6/scur2454/DL-Labs/assignment3/part1/train_pl.py", line 273, in <module>
+    train_vae(args)
+  File "/gpfs/home6/scur2454/DL-Labs/assignment3/part1/train_pl.py", line 221, in train_vae
+    gen_callback.sample_and_save(trainer, model, epoch=0)  # Initial sample
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/home6/scur2454/DL-Labs/assignment3/part1/train_pl.py", line 178, in sample_and_save
+    samples = pl_module.sample(self.batch_size)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur2454/.conda/envs/dl2025/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/home6/scur2454/DL-Labs/assignment3/part1/train_pl.py", line 109, in sample
+    probs = F.softmax(logits, dim=1).permute(0, 2, 3, 1).view(-1, 16)  # [B*28*28, 16]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead.
+srun: error: gcn13: task 0: Exited with exit code 1
+srun: Terminating StepId=17430967.0

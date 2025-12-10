@@ -75,9 +75,13 @@ class VAE(pl.LightningModule):
         z = sample_reparameterize(mean, torch.exp(log_std))
         rec = self.decoder(z)
 
-        L_rec = F.cross_entropy(rec, imgs.squeeze(1), reduction='sum') / imgs.shape[0]
-        L_reg = KLD(mean, log_std).mean()
+        L_rec = F.cross_entropy(rec, imgs.squeeze(1), reduction="none")
+        L_rec = L_rec.sum(dim=[1,2])  # sum over H and W
+        L_reg = KLD(mean, log_std)
         bpd = elbo_to_bpd(L_rec + L_reg, imgs.shape)
+        bpd = bpd.mean()
+        L_rec = L_rec.mean()
+        L_reg = L_reg.mean()
         #######################
         # END OF YOUR CODE    #
         #######################
@@ -102,7 +106,7 @@ class VAE(pl.LightningModule):
         logits = self.decoder(z) # [B, 16, 28, 28]
 
         # convert to pixel values
-        probs = F.softmax(logits, dim=1)
+        probs = F.softmax(logits, dim=1).permute(0, 2, 3, 1).reshape(-1, 16)  # [B*28*28, 16]
         x_samples = torch.multinomial(probs, num_samples=1).squeeze(1) # [B, 28, 28]
         x_samples = x_samples.unsqueeze(1)  # [B, 1, 28, 28]
         #######################
