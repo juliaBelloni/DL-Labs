@@ -79,9 +79,9 @@ class VAE(pl.LightningModule):
         L_rec = L_rec.sum(dim=[1,2])  # sum over H and W
         L_reg = KLD(mean, log_std)
         bpd = elbo_to_bpd(L_rec + L_reg, imgs.shape)
-        bpd = bpd.mean()
-        L_rec = L_rec.mean()
-        L_reg = L_reg.mean()
+        bpd = torch.mean(bpd)
+        L_rec = torch.mean(L_rec)
+        L_reg = torch.mean(L_reg)
         #######################
         # END OF YOUR CODE    #
         #######################
@@ -108,7 +108,7 @@ class VAE(pl.LightningModule):
         # convert to pixel values
         probs = F.softmax(logits, dim=1).permute(0, 2, 3, 1).reshape(-1, 16)  # [B*28*28, 16]
         x_samples = torch.multinomial(probs, num_samples=1).squeeze(1) # [B, 28, 28]
-        x_samples = x_samples.unsqueeze(1)  # [B, 1, 28, 28]
+        x_samples = x_samples.view(batch_size, 28, 28).unsqueeze(1)  # [B, 1, 28, 28]
         #######################
         # END OF YOUR CODE    #
         #######################
