@@ -126,6 +126,10 @@ def visualize_manifold(decoder, grid_size=20):
     logits = decoder(z_grid)
 
     probs = torch.softmax(logits, dim=1)
+    # argmax sampling
+    # x_samples = torch.argmax(probs, dim=1)  
+    # x_samples = x_samples.unsqueeze(1)
+    # img_grid = make_grid(x_samples.float() / 15, nrow=grid_size)
 
     B, C, H, W = probs.shape
 

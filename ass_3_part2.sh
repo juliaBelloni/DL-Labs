@@ -5,8 +5,8 @@
 #SBATCH --job-name=Part3
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=9
-#SBATCH --time=00:07:00
-#SBATCH --output=slurm_ass_3_part1_%A.out
+#SBATCH --time=00:10:00
+#SBATCH --output=slurm_ass_fin_3_part2_%A.out
 #SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=julia.belloni@student.uva.nl
 
@@ -22,6 +22,6 @@ conda activate dl2025
 
 #run code
 cd assignment3/part2
-srun python train.py 
-# srun python train.py --train_strats fgsm
+# srun python train.py --augmentations --pretrained
+srun python train.py
 # python train.py --train_strats pgd

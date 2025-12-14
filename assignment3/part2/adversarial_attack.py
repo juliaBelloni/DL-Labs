@@ -42,17 +42,18 @@ def fgsm_loss(model, criterion, inputs, labels, defense_args, return_preds = Tru
     inputs.requires_grad = True
 
     # Implement the FGSM attack
-    loss = criterion(model(inputs), labels)
-
-    model.zero_grad()
-    loss.backward()
-    attack = fgsm_attack(inputs, inputs.grad, epsilon)
+    input_clone = inputs.clone().detach().requires_grad_(True)
 
     # Calculate the loss for the original image
     # so that the gradients do not clash
-    input_clone = inputs.clone().detach().requires_grad_(True)
-    original_outputs = model(input_clone)
+    original_outputs = model(inputs)
     og_loss = criterion(original_outputs, labels)
+
+    grad = torch.autograd.grad(
+        og_loss, inputs, retain_graph=True
+    )[0]
+
+    attack = fgsm_attack(input_clone, grad, epsilon)
 
     # Calculate the perturbation
     perturbed_outputs = model(attack)
@@ -60,8 +61,7 @@ def fgsm_loss(model, criterion, inputs, labels, defense_args, return_preds = Tru
     # Calculate the loss for the perturbed image
     pert_loss = criterion(perturbed_outputs, labels)
 
-    # Combine the two losses
-    loss = alpha *og_loss + (1-alpha) * pert_loss
+    loss = (1 - alpha) * og_loss + alpha * pert_loss
 
     # Hint: the inputs are used in two different forward passes,
     # so you need to make sure those don't clash
@@ -81,7 +81,6 @@ def pgd_attack(model, data, target, criterion, args):
     # Implement the PGD attack
     for _ in range(num_iter):
         perturbed_data.requires_grad_(True)
-
         pred = model(perturbed_data)
         loss = criterion(pred, target)
         model.zero_grad()
@@ -89,11 +88,11 @@ def pgd_attack(model, data, target, criterion, args):
 
         # Take one FGSM step in the direction of the gradient
         with torch.no_grad():
-            perturbation = fgsm_attack(perturbed_data, perturbed_data.grad, alpha)
+            perturbation = perturbed_data + alpha * perturbed_data.grad.sign()
             # Make sure to clamp to the epsilon ball around the original data
-            perturbed_data = torch.clamp(perturbation, perturbed_data - epsilon, perturbed_data + epsilon)
-            perturbed_data = torch.copy(perturbed_data).detach()
-
+            change = torch.clamp(perturbation - data, -epsilon, epsilon)
+            perturbed_data = data + change
+            perturbed_data.detach_()
     # Hint: to make sure to each time get a new detached copy of the data,
     # to avoid accumulating gradients from previous iterations
     # Hint: it can be useful to use torch.no_grad()   
